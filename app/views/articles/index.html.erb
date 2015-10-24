@@ -1,0 +1,21 @@
+<section class="container">
+  <h1>Listing articles</h1>
+
+  <table class="table">
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Actions</th>
+    </tr>
+   
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.description %></td>
+        <td><%= image_tag(article.image_path, style: 'width: 200px') %></td>
+        <td><%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>
